@@ -22,7 +22,7 @@ export default defineComponent({
       :num="7"
     />
     <div
-      class="absolute z-10 h-full w-full bg-background bg-opacity-80 overflow-y-auto"
+      class="absolute z-10 h-full w-full bg-background bg-opacity-75 overflow-y-auto"
     >
       <Navigation />
       <router-view />
