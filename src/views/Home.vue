@@ -81,11 +81,18 @@ export default defineComponent({
       <div class="flex flex-col items-center mt-12">
         <a
           href="https://github.com/SongTube/SongTube-App/releases/latest"
+          target="_blank"
+          rel="noopener noreferrer"
           class="bg-accent shadow-lg rounded-2xl p-4 font-bold mb-6"
         >
           Download SongTube
         </a>
-        <a href="https://www.paypal.com/paypalme/artixo" class="font-bold">
+        <a
+          href="https://www.paypal.com/paypalme/artixo"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="font-bold"
+        >
           Donate
         </a>
       </div>
