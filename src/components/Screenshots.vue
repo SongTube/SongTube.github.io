@@ -16,8 +16,8 @@ export default defineComponent({
     ];
 
     setInterval(() => {
-      if (currentIndex.value == Images.length - 1) currentIndex.value = 0;
-      else currentIndex.value += 1;
+      if (currentIndex.value < Images.length - 1) currentIndex.value += 1;
+      else currentIndex.value = 0;
     }, 4000);
 
     return {
@@ -29,30 +29,13 @@ export default defineComponent({
 </script>
 
 <template>
-  <div class="relative w-88">
-    <transition
-      mode="out-in"
-      name="fade"
+  <div class="relative flex w-88 mb-4">
+    <img
       v-for="(image, index) in Images"
       :key="image"
-    >
-      <img
-        class="absolute w-full rounded-3xl shadow-lg"
-        v-if="currentIndex == index"
-        :src="image"
-      />
-    </transition>
+      class="w-full rounded-3xl shadow-lg transition-opacity duration-300"
+      :class="currentIndex == index ? 'opacity-100' : 'absolute opacity-0'"
+      :src="image"
+    />
   </div>
 </template>
-
-<style scoped>
-.fade-enter-active,
-.fade-leave-active {
-  transition-property: all;
-  transition-duration: 400ms;
-}
-.fade-enter-from,
-.fade-leave-active {
-  opacity: 0;
-}
-</style>

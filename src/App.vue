@@ -18,7 +18,7 @@ export default defineComponent({
     <ParticlesBg
       class="absolute z-0 blur"
       type="circle"
-      :color="['#F6453A']"
+      color="#F6453A"
       :num="7"
     />
     <div
