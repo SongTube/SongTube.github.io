@@ -14,7 +14,7 @@ export default defineComponent({
 </script>
 
 <template>
-  <div class="App h-screen w-screen overflow-y-hidden">
+  <div class="App flex h-screen w-screen overflow-y-hidden">
     <ParticlesBg
       class="absolute z-0 blur"
       type="circle"
@@ -22,10 +22,10 @@ export default defineComponent({
       :num="7"
     />
     <div
-      class="absolute z-10 h-full w-full bg-background bg-opacity-75 overflow-y-auto"
+      class="relative flex flex-col h-full w-full z-10 bg-background bg-opacity-75 overflow-y-auto"
     >
-      <Navigation />
-      <router-view />
+      <Navigation class="z-20" />
+      <router-view class="z-10" />
     </div>
   </div>
 </template>

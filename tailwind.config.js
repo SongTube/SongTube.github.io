@@ -4,8 +4,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        accent: '#F6453A',
+        accent: '#ff5252',
         background: '#212121',
+      },
+      spacing: {
+        88: '22rem',
       },
     },
   },
