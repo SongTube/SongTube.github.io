@@ -1,0 +1,42 @@
+name: Deploy website
+'on':
+  push:
+    branches:
+      - source
+jobs:
+  build:
+    name: Build project
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout project
+        uses: actions/checkout@v2
+      - name: Set up Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      - name: Install dependencies
+        run: yarn
+      - name: Production build
+        run: yarn build
+      - name: Save build artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: build
+          path: dist
+  deploy:
+    name: Deploy to github pages
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout project
+        uses: actions/checkout@v2
+      - name: Get build artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: build
+          path: dist
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.0
+        with:
+          branch: master
+          folder: dist
